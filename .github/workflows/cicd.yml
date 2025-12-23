@@ -36,10 +36,10 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      # Rename the image so it matches GitHub Container Registry format
+      # Rename the image so it matches GitHub Container Registry format (must be lowercase)
       - name: Tag Docker image for GHCR
-        run: docker tag vite-frontend:latest ghcr.io/${{ github.repository }}:latest
+        run: docker tag vite-frontend:latest ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):latest
 
       # Push the image to GitHub Container Registry
       - name: Push Docker image to GHCR
-        run: docker push ghcr.io/${{ github.repository }}:latest
+        run: docker push ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):latest
