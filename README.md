@@ -6,6 +6,4 @@
 
 <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/0f7f5825-5e13-4bf1-9090-aa97a8154c5a" />
 
-<img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/bb5fbcbe-d8cd-45a4-9983-656043e01c74" />
-
 <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/b038c54f-8423-49cd-8c88-32a1d8406daf" />
