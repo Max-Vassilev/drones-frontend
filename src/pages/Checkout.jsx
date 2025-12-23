@@ -23,7 +23,7 @@ export default function Checkout() {
       cart.length === 0
     ) {
       toast.error("Please fill all fields", {
-        duration: 10000,
+        duration: 3000,
         position: "top-center",
         style: {
           minWidth: "420px",
@@ -53,8 +53,9 @@ export default function Checkout() {
       if (!res.ok) throw new Error()
 
       localStorage.removeItem("cart")
+
       toast.success("Order placed successfully", {
-        duration: 10000,
+        duration: 3000,
         position: "top-center",
         style: {
           minWidth: "420px",
@@ -64,10 +65,14 @@ export default function Checkout() {
           fontWeight: "500"
         }
       })
-      setTimeout(() => (window.location.href = "/"), 10000)
+
+      setTimeout(() => {
+        window.location.href = "/"
+      }, 3000)
+
     } catch {
       toast.error("Order failed", {
-        duration: 10000,
+        duration: 3000,
         position: "top-center",
         style: {
           minWidth: "420px",

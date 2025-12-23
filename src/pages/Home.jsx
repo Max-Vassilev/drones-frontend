@@ -3,12 +3,20 @@ import ProductCard from "../components/ProductCard"
 
 export default function Home() {
   const [products, setProducts] = useState(null)
+  const [page, setPage] = useState(1)
+  const perPage = 6
 
   useEffect(() => {
     fetch("http://127.0.0.1:8080/products")
       .then(res => res.json())
       .then(data => setProducts(data))
+      .catch(() => setProducts([]))
   }, [])
+
+  const totalPages = Math.max(1, Math.ceil((products?.length || 0) / perPage))
+  const safePage = Math.min(page, totalPages)
+  const start = (safePage - 1) * perPage
+  const currentProducts = (products || []).slice(start, start + perPage)
 
   return (
     <>
@@ -19,14 +27,36 @@ export default function Home() {
         </div>
       </section>
 
-      {!products && <div className="loading-text">Loading...</div>}
+      {products === null && <div className="loading-text">Loading...</div>}
 
-      {products && (
-        <div className="container">
-          {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      {products !== null && (
+        <>
+          <div className="container">
+            {currentProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          {products.length > 0 && (
+            <div className="pagination">
+              <button
+                disabled={safePage === 1}
+                onClick={() => setPage(p => p - 1)}
+              >
+                &lt;
+              </button>
+
+              <span>{safePage} / {totalPages}</span>
+
+              <button
+                disabled={safePage === totalPages}
+                onClick={() => setPage(p => p + 1)}
+              >
+                &gt;
+              </button>
+            </div>
+          )}
+        </>
       )}
     </>
   )
