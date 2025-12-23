@@ -37,6 +37,6 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      # Push the image to GitHub Container Registry
+      # multi-arch images should be built, tagged, and pushed in one command
       - name: Build and Push Docker image to GHCR (multi-arch)
         run: docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):latest --push .
