@@ -1,4 +1,4 @@
-name: vite-ci
+name: vite-ci-docker-build
 
 on:
   pull_request:
@@ -17,3 +17,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+
+      - name: Build Docker image
+        run: docker build -t vite-frontend:latest .
