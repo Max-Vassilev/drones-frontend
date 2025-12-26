@@ -37,14 +37,10 @@ jobs:
 
       - name: Tag Docker image for GHCR
         run: |
-          IMAGE_VERSION="v${{ github.run_number }}"
           IMAGE_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-          docker tag vite-frontend:latest ghcr.io/$IMAGE_NAME:$IMAGE_VERSION
           docker tag vite-frontend:latest ghcr.io/$IMAGE_NAME:latest
 
       - name: Push Docker image to GHCR
         run: |
-          IMAGE_VERSION="v${{ github.run_number }}"
           IMAGE_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-          docker push ghcr.io/$IMAGE_NAME:$IMAGE_VERSION
           docker push ghcr.io/$IMAGE_NAME:latest
