@@ -7,7 +7,7 @@ export default function Home() {
   const perPage = 6
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/products")
+    fetch("http://127.0.0.1:5000/products")
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(() => setProducts([]))

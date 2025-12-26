@@ -4,7 +4,7 @@ export default function About() {
   const [about, setAbout] = useState(null)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/about")
+    fetch("http://127.0.0.1:5000/about")
       .then(res => res.json())
       .then(data => setAbout(data))
   }, [])
