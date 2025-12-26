@@ -4,7 +4,7 @@ export default function Contacts() {
   const [contact, setContact] = useState(null)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5001/contacts")
+    fetch("http://drones-backend-service:5001/contacts") // For propper K8s communication
       .then(res => res.json())
       .then(data => setContact(data))
   }, [])

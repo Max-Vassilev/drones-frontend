@@ -7,7 +7,7 @@ export default function Home() {
   const perPage = 6
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5001/products")
+    fetch("http://drones-backend-service:5001/products") // For propper K8s communication
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(() => setProducts([]))
