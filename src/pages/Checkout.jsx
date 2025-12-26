@@ -44,7 +44,7 @@ export default function Checkout() {
         }))
       }
 
-      const res = await fetch("http://127.0.0.1:5000/orders", {
+      const res = await fetch("http://127.0.0.1:5001/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

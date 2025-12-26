@@ -8,7 +8,7 @@ export default function Product() {
   const [product, setProduct] = useState(null)
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/products/${id}`)
+    fetch(`http://127.0.0.1:5001/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data))
   }, [id])
