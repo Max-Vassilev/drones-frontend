@@ -22,7 +22,7 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="hero-overlay">
-          <h1>Discover the World from Above</h1>
+          <h1>Discover the World from Above Bla Bla</h1>
           <p>Premium drones for creators, explorers, and professionals</p>
         </div>
       </section>
