@@ -8,7 +8,7 @@ export default function Product() {
   const [product, setProduct] = useState(null)
 
   useEffect(() => {
-    fetch(`http://drones-backend-service:5001/products/${id}`) // For propper K8s communication
+    fetch(`http://localhost:5001/products/${id}`) // For propper K8s communication
       .then(res => res.json())
       .then(data => setProduct(data))
   }, [id])

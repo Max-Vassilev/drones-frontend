@@ -44,7 +44,7 @@ export default function Checkout() {
         }))
       }
 
-      const res = await fetch("http://drones-backend-service:5001/orders", { // For propper K8s communication
+      const res = await fetch("http://localhost:5001/orders", { // For propper K8s communication
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
