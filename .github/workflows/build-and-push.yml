@@ -1,4 +1,4 @@
-name: Vite CI – Build and Push Docker Image
+name: Build and Publish
 
 on:
   pull_request:
